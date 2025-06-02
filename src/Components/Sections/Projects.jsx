@@ -2,7 +2,7 @@ import React from "react";
 import RevealOnScroll from "../RevealOnScroll";
 import Adventuro from "../../assets/Images/Adventuro.png";
 import Nike from "../../assets/Images/Nike.png";
-import Snapwrite from "../../assets/Images/Snapwrite.png";
+import SnapwriteImg from "../../assets/Images/Snapwrite.png";
 import Ecom from "../../assets/Images/Ecom.png";
 import { FaGithub } from "react-icons/fa";
 
@@ -111,7 +111,7 @@ const Projects = () => {
               </h3>
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
-                  src={Snapwrite}
+                  src={SnapwriteImg}
                   className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
                   alt="SnapWrite Blog Application"
                 />
