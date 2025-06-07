@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showEmojis, setShowEmojis] = useState(true);
+  const [showEmojis, setShowEmojis] = useState(false);
 
   return (
     <>
