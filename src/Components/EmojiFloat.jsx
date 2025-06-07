@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const emojis = [
   {
@@ -31,53 +31,51 @@ const emojis = [
   },
 ];
 
-// Generate random values for left position and animation delay/duration to make it natural
-const randomLeft = () => `${Math.random() * 90}%`;
-const randomDuration = () => 5 + Math.random() * 5; // 5-10 seconds
-const randomDelay = () => Math.random() * 5; // 0-5 seconds
+const generateEmojiProps = () =>
+  emojis.map((emoji) => ({
+    ...emoji,
+    left: `${Math.random() * 90}%`,
+    duration: `${5 + Math.random() * 5}s`,
+    delay: `${Math.random() * 3}s`,
+    rotationDirection: Math.random() > 0.5 ? 1 : -1,
+  }));
 
 const EmojiFloat = () => {
+  const emojiConfigs = useMemo(generateEmojiProps, []);
+
   return (
-    <>
+    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", overflow: "hidden", pointerEvents: "none", zIndex: 1 }}>
       <style>{`
-        @keyframes fallDown {
+        @keyframes floatDown {
           0% {
-            transform: translateY(-100%);
-            opacity: 1;
-          }
-          90% {
+            transform: translateY(-150px) rotate(0deg);
             opacity: 1;
           }
           100% {
-            transform: translateY(110vh);
+            transform: translateY(110vh) rotate(360deg);
             opacity: 0;
           }
         }
       `}</style>
 
-      {emojis.map((emoji, idx) => (
+      {emojiConfigs.map((emoji, idx) => (
         <img
           key={idx}
           src={emoji.src}
           alt={emoji.alt}
           style={{
             position: "absolute",
-            top: "-50px", // start just above the viewport
-            left: randomLeft(),
-            width: "140px",
-            height: "140px",
-            pointerEvents: "none",
-            userSelect: "none",
-            animationName: "fallDown",
-            animationDuration: `${randomDuration()}s`,
-            animationDelay: `${randomDelay()}s`,
-            animationTimingFunction: "linear",
-            animationIterationCount: "infinite",
+            top: "-150px",
+            left: emoji.left,
+            width: "100px",
+            height: "100px",
+            animation: `floatDown ${emoji.duration} linear ${emoji.delay} infinite`,
+            transformOrigin: "center",
             zIndex: 0,
           }}
         />
       ))}
-    </>
+    </div>
   );
 };
 

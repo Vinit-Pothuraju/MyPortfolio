@@ -1,6 +1,6 @@
 {
   "name": "myportfolio",
-  "homepage": "https://Vinit-Pothuraju.github.io/MyPortfolio",
+  "homepage": "https://vinit-pothuraju.github.io/MyPortfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,16 +9,17 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist"
-
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
     "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.16.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {

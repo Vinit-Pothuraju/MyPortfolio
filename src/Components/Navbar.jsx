@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
   useEffect(() => {
@@ -6,21 +7,20 @@ const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
   }, [menuOpen]);
 
   return (
-    <div className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.1)] backdrop-blur-xl border-b border-white/10 shadow-lg">
+    <div className="fixed top-0 w-full z-50 bg-[rgba(10,10,10,0.1)] backdrop-blur-xl border-b border-white/10 shadow-lg">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <a href="#home" className="font-mono text-xl font-bold text-white">
             Vinit<span className="text-blue-500">.dev</span>
           </a>
 
-          
-          <div
-            className="w-7 h-5 relative cursor-pointer z-40 md:hidden flex items-center space-x-4"
-            style={{ userSelect: "none" }}
-          >
-            <div onClick={() => setMenuOpen((prev) => !prev)}>&#9776;</div>
-
-            
+          {/* Mobile View Controls */}
+          <div className="md:hidden flex items-center space-x-4">
+            <GiHamburgerMenu
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="text-white text-3xl cursor-pointer"
+              aria-label="Menu"
+            />
             <button
               onClick={() => setShowEmojis((prev) => !prev)}
               className="text-white bg-blue-600 px-2 py-1 rounded-md text-sm"
@@ -29,34 +29,17 @@ const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
             </button>
           </div>
 
-          
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="#Home"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="#About"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#Projects"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#Contact"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Contact
-            </a>
-
-           
+            {["Home", "About", "Projects", "Contact"].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                {section}
+              </a>
+            ))}
             <button
               onClick={() => setShowEmojis((prev) => !prev)}
               className="text-white bg-blue-600 px-3 py-1 rounded-md text-sm"
