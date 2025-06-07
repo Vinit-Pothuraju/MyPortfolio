@@ -2,7 +2,7 @@ import React from "react";
 import RevealOnScroll from "../RevealOnScroll";
 import Adventuro from "../../assets/Images/Adventuro.png";
 import Nike from "../../assets/Images/Nike.png";
-import SnapwriteImg from "../../assets/Images/Snapwrite.png";
+import SnapwriteImg from "../../assets/Images/SnapWrite.png";
 import Ecom from "../../assets/Images/Ecom.png";
 import { FaGithub } from "react-icons/fa";
 
