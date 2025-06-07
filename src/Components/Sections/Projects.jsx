@@ -20,7 +20,7 @@ const Projects = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">
               <h3 className="text-xl font-bold mb-2">
-                Adventuro AI TRAVEL PLANNER
+                Adventuro Ai Travel Planner
               </h3>
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
