@@ -38,7 +38,7 @@
 
         {/* Scroll Down Arrow with react-icons */}
         <a
-          href="#Projects"
+          href="#About"
           aria-label="Scroll Down"
           className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
         >
