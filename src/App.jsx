@@ -18,12 +18,13 @@ function App() {
 
   return (
     <>
-    
+      {/* Animated Background Behind Everything */}
       <Background />
 
-   
+      {/* Loading screen */}
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
+      {/* Main content with fade-in transition */}
       <div
         className={`relative z-10 min-h-screen transition-opacity duration-700 ${
           isLoading ? "opacity-0" : "opacity-100"
