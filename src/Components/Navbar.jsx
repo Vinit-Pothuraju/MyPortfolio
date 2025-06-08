@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
+const Navbar = ({ menuOpen, setMenuOpen, }) => {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
@@ -21,12 +21,7 @@ const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
               className="text-white text-3xl cursor-pointer"
               aria-label="Menu"
             />
-            <button
-              onClick={() => setShowEmojis((prev) => !prev)}
-              className="text-white bg-blue-600 px-2 py-1 rounded-md text-sm"
-            >
-              {showEmojis ? "Hide Emojis" : "Show Emojis"}
-            </button>
+           
           </div>
 
           {/* Desktop Navigation */}
@@ -40,12 +35,9 @@ const Navbar = ({ menuOpen, setMenuOpen, showEmojis, setShowEmojis }) => {
                 {section}
               </a>
             ))}
-            <button
-              onClick={() => setShowEmojis((prev) => !prev)}
-              className="text-white bg-blue-600 px-3 py-1 rounded-md text-sm"
-            >
-              {showEmojis ? "Hide Emojis" : "Show Emojis"}
-            </button>
+            
+            
+           
           </div>
         </div>
       </div>

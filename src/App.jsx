@@ -12,32 +12,24 @@ import Background from "./Components/Background";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showEmojis, setShowEmojis] = useState(false);
+  
 
   return (
     <>
-      {/* Animated Background Behind Everything */}
+    
       <Background />
 
-      {/* Loading screen */}
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-
-      {/* Main content with fade-in transition */}
-      <div
-        className={`relative z-10 min-h-screen transition-opacity duration-700 ${
-          isLoading ? "opacity-0" : "opacity-100"
-        } text-gray-100`}
-      >
+     
+    
         <Navbar
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
-          showEmojis={showEmojis}
-          setShowEmojis={setShowEmojis}
+         
         />
         <MobileNavbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Home showEmojis={showEmojis} />
+        <Home  />
         <About />
         <Projects />
         <Contact />
@@ -50,7 +42,7 @@ function App() {
           draggable
           theme="dark"
         />
-      </div>
+      
     </>
   );
 }
