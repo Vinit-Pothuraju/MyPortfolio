@@ -1,142 +1,334 @@
 import React from "react";
-import RevealOnScroll from "../RevealOnScroll";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { motion, scale } from "framer-motion";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaCode,
+  FaGraduationCap,
+  FaBookOpen,
+} from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import gfg from "../../assets/Logos/GeeksforGeeks.png";
+import lc from "../../assets/Logos/leetcode.png";
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeInFrom = (x = 0, y = 0) => ({
+  hidden: { opacity: 0, x, y },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 18,
+    },
+  },
+  exit: { opacity: 0, x, y },
+});
 
 const About = () => {
-  const FrontendSkills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React.js",
-    "Tailwind CSS",
-    "TypeScript",
-    "GSAP",
-    "zod",
-    "Responsive Design",
-    "React Router",
-  ];
-  const BackendSkills = [
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "PostgreSQL",
-    "Firebase",
-    "REST APIs",
-    "GraphQL",
-    "Socket.io",
-    "JWT (Authentication)",
-    "Sequelize",
-  ];
-
   return (
     <section
-      id="About"
-      className="min-h-screen flex items-center justify-center py-20"
+      id="overview"
+      className="min-h-screen flex items-center justify-center py-10 overflow-x-hidden"
     >
-      <RevealOnScroll>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cypan-400 bg-clip-text text-transparent text-center">
-            About Me
-          </h2>
-          <div className="rounded-xl p-8 border-white/10 border hover:-translate-y-1 transition-all">
-            <p className="text-gray-300 mb-6">
-              Passionate full stack developer building sleek, responsive web
-              apps. Driven by clean code, smart systems, and the joy of
-              problem-solving.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Frontend</h3>
-                <div className="flex flex-wrap gap-2">
-                  {FrontendSkills.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="rounded-xl p-6 hover:-translate-y-1 transition-all">
-                <h3 className="text-xl font-bold mb-4">Backend</h3>
-                <div className="flex flex-wrap gap-2">
-                  {BackendSkills.map((tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all">
-              <h3 className="text-xl font-bold mb-4">Education</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>
-                  <strong>B.Tech in Computer Science</strong> - Mohan Babu
-                  University(2022-Present) <br />
-                  <p className="mt-2">
-                    Grade:
-                    <span className="bg-green-500/10 text-green-500 py-1 px-3 rounded-full text-sm hover:bg-green-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)]">
-                      9.43
-                    </span>
-                  </p>
-                </li>
-                <li>
-                  <strong>Pre Unversity Course</strong> - Rajiv Gandhi
-                  University of Knowledge and Technologies (2020-2022) <br />
-                  <p className="mt-2">
-                    Grade:
-                    <span className="bg-green-500/10 text-green-500 py-1 px-3 rounded-full text-sm hover:bg-green-500/20 hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)]">
-                      9.21{" "}
-                    </span>
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div className="p-6 rounded-xl  border-white/10 border hover:-translate-y-1 transition-all flex flex-col items-center">
-              <img
-                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Technologist%20Light%20Skin%20Tone.png"
-                alt="Man Technologist Light Skin Tone"
-                width="225"
-                height="225"
-                className="mx-auto"
-              />
+      <motion.div
+        className="w-auto flex flex-col justify-between align-middle"
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <motion.div
+          className="text-center py-16 px-4 flex flex-col items-center justify-center"
+          variants={fadeInFrom(0, 40)}
+        >
+          <motion.span
+            className="relative mb-4 px-4 py-1 rounded-full text-sm font-medium text-white bg-green-400/10 border border-green-400/30 backdrop-blur-md flex items-center gap-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {/* Pulsing Bubble */}
+            <motion.span
+              className="w-2 h-2 rounded-full bg-green-400"
+              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            Get to know me
+          </motion.span>
 
-              <div className="mt-4 flex gap-6">
-                <a
-                  href="https://www.linkedin.com/in/pothuraju-vinit-kumar/"
-                  target="_blank"
-                  className="text-blue-500 hover:text-blue-400 transition-colors"
+          <motion.h1
+            className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 relative inline-block"
+            variants={fadeInFrom(0, 20)}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            About Me
+          <motion.span
+  className="block h-[3px] bg-gradient-to-r from-blue-500 to-pink-500 mt-2 mx-auto origin-center rounded-2xl"
+  animate={{ scaleX: [0, 1, 0] }}
+  transition={{
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+/>
+
+
+          </motion.h1>
+
+          <motion.p
+            className="mt-6 max-w-xl text-gray-300 text-base sm:text-lg"
+            variants={fadeInFrom(0, 20)}
+          >
+            Crafting digital experiences with passion, precision, and purpose
+          </motion.p>
+        </motion.div>
+
+        <div className="min-h-screen text-white px-6 py-10 font-sans">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 space-y-6">
+              <motion.div
+                className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6"
+                variants={fadeInFrom(-50, 0)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <h1 className="text-2xl font-bold mb-2">
+                  👋 Hello, I’m{" "}
+                  <span className="text-purple-400">Pothuraju Vinit Kumar</span>
+                </h1>
+                <p className="text-base text-gray-300">
+                  A passionate{" "}
+                  <span className="text-blue-400 font-semibold">
+                    Full Stack Developer
+                  </span>{" "}
+                  and
+                  <span className="text-pink-400 font-semibold">
+                    {" "}
+                    AI enthusiast
+                  </span>{" "}
+                  crafting UIs by day, wrangling APIs by night, and occasionally
+                  googling my own errors.
+                </p>
+                <hr className="my-4 border-gray-700" />
+                <p className="text-sm text-gray-400">
+                  I’m a Full Stack Developer who enjoys building everything from
+                  dynamic user interfaces to robust backend APIs. I speak both
+                  frontend and backend fluently—whether it’s React, Node.js, or
+                  a sneaky SQL query at 2 AM. I believe in clean code, scalable
+                  architecture, and that no bug can withstand enough
+                  console.logs and coffee.
+                  <br />
+                  When I'm not pushing code or styling buttons to pixel
+                  perfection, I’m exploring new frameworks, contributing to side
+                  projects, or helping friends deploy their apps (because Git
+                  always behaves better when someone’s watching). I love turning
+                  complex problems into simple, elegant solutions—and
+                  occasionally turning those solutions into memes.
+                </p>
+                <div className="mt-4">
+                  <h3 className="font-semibold text-sm mb-2 text-white flex items-center gap-2">
+                    🔧 Core Technologies
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "AI Integration",
+                      "React",
+                      "Node.js",
+                      "TypeScript",
+                      "Java",
+                      "JavaScript",
+                      "Data Structures",
+                      "MongoDB",
+                      "Algorithms",
+                    ].map((tech, index) => (
+                      <span
+                        key={index}
+                        className="text-sm bg-gradient-to-br from-blue-800/20  to-purple-700/20 backdrop-blur-xl border border-white/10 rounded-xl py-1.5 px-2 shadow-xl "
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <motion.div
+                  className="bg-gradient-to-br from-blue-800/20 to-indigo-700/20 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
+                  variants={fadeInFrom(-60, 0)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  <FaLinkedin size={28} />
-                </a>
-                <a
-                  href="https://github.com/Vinit-Pothuraju"
-                  target="_blank"
-                  className="text-white hover:text-gray-400 transition-colors"
+                  <h2 className="text-lg font-semibold mb-2 text-white">
+                    🌱 Developer Habits
+                  </h2>
+                  <ul className="space-y-2">
+                    {[
+                      "📖 Read docs first",
+                      "💡 Solve small before big",
+
+                      "🧠 Level up every week",
+                    ].map((habit, i) => (
+                      <li
+                        key={i}
+                        className="px-4 py-2 bg-gradient-to-br from-sky-900/30 to-cyan-800/10 border border-cyan-500 rounded-lg hover:scale-[1.02] transition transform hover:shadow-lg text-white text-sm"
+                      >
+                        {habit}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+
+                <motion.div
+                  className="bg-gradient-to-br from-green-800/20 to-emerald-600/10 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
+                  variants={fadeInFrom(60, 0)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  <FaGithub size={28} />
-                </a>
-                <a
-                  href="https://www.instagram.com/vinit._.pothuraju/"
-                  target="_blank"
-                 
-                  className="text-pink-500 hover:text-pink-400 transition-colors"
-                >
-                  <FaInstagram size={28} />
-                </a>
+                  <h3 className="font-semibold text-lg mb-4 text-white ">
+                    👨‍💻 Coding Profiles
+                  </h3>
+                  <ul className="text-sm flex flex-wrap justify-around items-center gap-4 text-white/90">
+                    {/* LeetCode */}
+                    <li className="flex flex-col items-center gap-2 px-3 py-2 rounded-md border border-green-400 bg-white/5 backdrop-blur-md text-white text-sm w-28 hover:scale-105 transition-transform duration-200">
+                      <img
+                        src={lc}
+                        alt="LeetCode Logo"
+                        className="w-10 h-10 object-contain"
+                      />
+                      <a
+                        href="https://leetcode.com/yourusername"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline text-center"
+                      >
+                        LeetCode
+                      </a>
+                    </li>
+
+                    {/* GeeksforGeeks */}
+                    <li className="flex flex-col items-center gap-2 px-3 py-2 rounded-md border border-green-400 bg-white/5 backdrop-blur-md text-white text-sm w-28 hover:scale-105 transition-transform duration-200">
+                      <img
+                        src={gfg}
+                        alt="GFG Logo"
+                        className="w-10 h-10 object-contain"
+                      />
+                      <a
+                        href="https://auth.geeksforgeeks.org/user/yourusername"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline text-center"
+                      >
+                        GeeksforGeeks
+                      </a>
+                    </li>
+                  </ul>
+                  <p className="text-green-300 text-center px-4 py-2 rounded-xl border border-green-300 text-sm bg-white/10 backdrop-blur-md font-medium mt-4 hover:scale-105 transition-transform duration-200">
+                    Consistency &gt; Motivation
+                  </p>
+                </motion.div>
               </div>
             </div>
-            
+
+            <div className="space-y-6">
+              <motion.div
+                className="bg-gradient-to-br from-purple-800/20 to-pink-700/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl"
+                variants={fadeInFrom(60, 0)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <h3 className="font-semibold text-lg mb-3 text-white">
+                  📬 Let’s Connect
+                </h3>
+                <div className="text-sm space-y-2 text-white/90">
+                  <p className="flex items-center gap-2 px-3 py-2 rounded-md border border-pink-400 bg-white/5 backdrop-blur-md text-white text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    <HiOutlineMail className="text-lg text-white" />{" "}
+                    vinitkumarpothuraju@gmail.com
+                  </p>
+                  <p className="flex items-center gap-2 px-3 py-2 rounded-md border border-pink-400 bg-white/5 backdrop-blur-md text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    <motion.a
+                      href="https://github.com/Vinit-Pothuraju"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-2 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaGithub className="text-sm text-white" />
+                      GitHub
+                    </motion.a>
+                  </p>
+                  <p className="flex items-center gap-2 px-3 py-2 rounded-md border  border-pink-400 bg-white/5 backdrop-blur-md text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    📍 India
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-pink-600/20 to-orange-300/20 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl"
+                variants={fadeInFrom(-60, 0)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <h3 className="font-semibold text-lg mb-3 text-white">
+                  🏆 Achievements
+                </h3>
+                <ul className="text-sm space-y-2 text-white/90">
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border--300 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    <FaGraduationCap className="text-orange-300" /> Consistent
+                    Academic Performer
+                  </li>
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-orange-300 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    <FaBookOpen className="text-orange-300" /> 9.5 CGPA in
+                    Academics
+                  </li>
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-orange-300 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    <FaCode className="text-orange-300" /> Solved 200+ LeetCode
+                    Problems
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                className="bg-gradient-to-br from-sky-800/20 to-cyan-700/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl"
+                variants={fadeInFrom(60, 0)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <h3 className="font-semibold text-lg mb-3 text-white">
+                  ✅ Available for Hire
+                </h3>
+                <ul className="text-sm space-y-2 text-white/90">
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    🟢 Open to Opportunities
+                  </li>
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    🌍 Open to Remote & On-site
+                  </li>
+                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+                    🚚 Willing to Relocate
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
           </div>
         </div>
-      </RevealOnScroll>
+      </motion.div>
     </section>
   );
 };

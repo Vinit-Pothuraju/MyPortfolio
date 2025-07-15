@@ -1,61 +1,90 @@
-  import React from "react";
-  import { motion } from "framer-motion";
-  import { FiChevronDown } from "react-icons/fi";  // <-- Import the icon
-  import RevealOnScroll from "../RevealOnScroll";
-  import EmojiFloat from "../EmojiFloat";
+import React from "react";
+import { motion, scale } from "framer-motion";
+import { FiChevronDown } from "react-icons/fi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import AutoDomainSwitcher from "../AutoDomainSwitcher";
+import SocialLinks from "../SocialLinks"
+// Motion variants
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
-  const Home = () => {
-    return (
-      <section
-        id="Home"
-        className="min-h-screen flex flex-col items-center justify-center relative"
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+
+const Home = () => {
+  return (
+    <section
+      id="Home"
+      className="min-h-screen flex flex-col items-center justify-center relative"
+    >
+      {/* Motion wrapper for the entire text content */}
+     <motion.div
+  className="flex flex-col top-16 justify-center items-center z-10 relative px-4"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  <motion.h1
+    className="text-5xl mb-4 md:text-7xl font-bold text-center text-white tracking-wide"
+    variants={fadeUpVariant}
+  >
+    Vinit Kumar
+  </motion.h1>
+
+  <motion.div variants={fadeUpVariant}>
+    <AutoDomainSwitcher />
+  </motion.div>
+
+  <motion.p
+    className="text-white text-center text-lg mb-8 max-w-lg mx-auto tracking-wide"
+    variants={fadeUpVariant}
+  >
+    Growing as a full stack developer by building, breaking, and learning — every single day
+  </motion.p>
+
+  <motion.div variants={fadeUpVariant}>
+    <SocialLinks fadeUpVariant={fadeUpVariant} />
+  </motion.div>
+</motion.div>
+
+
+      {/* Scroll Down Arrow with motion */}
+      <a
+        href="#overview"
+        aria-label="Scroll Down"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
       >
-        
-        <RevealOnScroll>
-          <div className="text-center z-10 relative px-4">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent leading-right">
-              Hi, I'm Vinit Kumar
-            </h1>
-            <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto ">
-              Growing as a full stack developer by building, breaking, and learning — every single day
-            </p>
-            <div className="flex justify-center space-x-4 mb-12">
-              <a
-                href="#Projects"
-                className="bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
-              >
-                View Projects
-              </a>
-              <a
-                href="#Contact"
-                className="border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:bg-blue-500/50"
-              >
-                Contact Me
-              </a>
-            </div>
-          </div>
-        </RevealOnScroll>
-
-        {/* Scroll Down Arrow with react-icons */}
-        <a
-          href="#About"
-          aria-label="Scroll Down"
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer"
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
         >
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: [0, 10, 0] }}
-            transition={{
-              duration: 2,
-              ease: "easeInOut",
-              repeat: Infinity,
-            }}
-          >
-            <FiChevronDown className="w-10 h-10 text-blue-500" />
-          </motion.div>
-        </a>
-      </section>
-    );
-  };
+          <FiChevronDown className="w-10 h-10 text-blue-500" />
+        </motion.div>
+      </a>
+    </section>
+  );
+};
 
-  export default Home;
+export default Home;

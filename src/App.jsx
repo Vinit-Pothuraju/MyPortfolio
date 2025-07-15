@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import LoadingScreen from "./Components/LoadingScreen";
+import { useState } from "react";
+// import LoadingScreen from "./Components/LoadingScreen";
 import "./index.css";
 import Navbar from "./Components/Navbar";
 import MobileNavbar from "./Components/MobileNavbar";
@@ -11,15 +11,15 @@ import Background from "./Components/Background";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function App() {
+import TechStack from "./Components/Sections/Techstack";
+function App(){
   
   const [menuOpen, setMenuOpen] = useState(false);
   
 
   return (
-    <>
-    
-      <Background />
+  <>
+         <Background />
 
      
     
@@ -29,10 +29,11 @@ function App() {
          
         />
         <MobileNavbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <Home  />
-        <About />
-        <Projects />
-        <Contact />
+        <Home  className="overflow-x-hidden" />
+        <About  className="overflow-x-hidden"/>
+        <TechStack/>
+        <Projects className="overflow-x-hidden" />
+        <Contact  className="overflow-x-hidden"/>
         <ToastContainer
           position="top-right"
           autoClose={3000}
@@ -43,8 +44,6 @@ function App() {
           theme="dark"
         />
       
-    </>
-  );
-}
-
+    </>)}
+ 
 export default App;
