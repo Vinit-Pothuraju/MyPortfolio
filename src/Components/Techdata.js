@@ -1,7 +1,7 @@
 import { techIcons } from "../assets/Icons/TechIcons";
 
 const defaultLevels = {
-  React: "Expert",
+  React: "Intermediate",
   Tailwind: "Intermediate",
   Css: "Intermediate",
   Html: "Expert",

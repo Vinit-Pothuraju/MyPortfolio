@@ -1,201 +1,206 @@
-import React from "react";
-import RevealOnScroll from "../RevealOnScroll";
-import Adventuro from "../../assets/Images/Adventuro.png";
-import Nike from "../../assets/Images/Nike.png";
-import SnapwriteImg from "../../assets/Images/SnapWrite.png";
-import Ecom from "../../assets/Images/Ecom.png";
-import { FaGithub } from "react-icons/fa";
+// pages/projects.jsx or Home.jsx
 
-const Projects = () => {
+import ProjectCard from "../ProjectCard";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    title: "Adventuro - AI Travel Planner",
+    subtitle: "Smart vacation planner using OpenAI",
+    description:
+      "An AI-powered platform that creates personalized travel itineraries using OpenAI APIs, real-time data, and user preferences.",
+    tags: ["AI", "Web App", "Travel", "2024"],
+    features: [
+      "Personalized itineraries via OpenAI",
+      "Secure JWT authentication & protected routes",
+      "Real-time data via third-party APIs",
+      "Reusable and modular component structure",
+    ],
+    deliverables: [
+      "Responsive UI with Tailwind CSS",
+      "Backend with Express.js + MongoDB",
+      "JWT Auth Integration",
+      "RESTful API endpoints",
+    ],
+    techStack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "JWT",
+      "REST API",
+    ],
+    repoLink: "https://github.com/Vinit-Pothuraju/Adventuro",
+    liveLink: "",
+  },
+  {
+    title: "SnapWrite – Blog Platform",
+    subtitle: "Full-stack blogging platform with Google Auth",
+    description:
+      "A dynamic blogging platform with secure Google login, post management (CRUD), and mobile-friendly design.",
+    tags: ["Blog", "Firebase", "Full Stack", "2025"],
+    features: [
+      "Google OAuth authentication",
+      "Create, Read, Update, Delete blog posts",
+      "Responsive and accessible layout",
+      "Tested with 50+ users",
+    ],
+    deliverables: [
+      "Post CRUD functionality",
+      "Global state via Redux",
+      "Routing with React Router",
+      "Firebase Auth integration",
+    ],
+    techStack: [
+      "React",
+      "Redux",
+      "Firebase Auth",
+      "React Router",
+      "Tailwind CSS",
+    ],
+    repoLink: "https://github.com/Vinit-Pothuraju/SnapWrite",
+    liveLink: "",
+  },
+  {
+    title: "Developer Portfolio",
+    subtitle: "Personal portfolio with animation and performance",
+    description:
+      "Portfolio showcasing 4+ personal projects, built with Framer Motion, Tailwind, and deployed with Vercel. Optimized for performance and SEO.",
+    tags: ["Portfolio", "Frontend", "Personal", "2024"],
+    features: [
+      "Animated UI with Framer Motion",
+      "Mobile-first responsive design",
+      "Perfect Lighthouse scores",
+      "SEO and accessibility optimized",
+    ],
+    deliverables: [
+      "Live portfolio website",
+      "Framer Motion transitions",
+      "Vercel deployment",
+      "Responsive sections",
+    ],
+    techStack: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
+    repoLink: "https://github.com/Vinit-Pothuraju/portfolio",
+    liveLink: "https://my-portfolio-lilac-chi-13.vercel.app/",
+  },
+];
+
+const fadeInFrom = (x = 0, y = 0) => ({
+  hidden: { opacity: 0, x, y },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 70,
+      damping: 18,
+    },
+  },
+  exit: { opacity: 0, x, y },
+});
+
+export default function ProjectsPage() {
+  const title = "Featured Projects";
+  const description =
+    "Discover my latest work in web development, AI integration, and digital innovation";
+
   return (
-    <section
-      id="Projects"
-      className="min-h-screen flex items-center justify-center py-20"
-    >
-      <RevealOnScroll>
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cypan-400 bg-clip-text text-transparent text-center">
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">
-              <h3 className="text-xl font-bold mb-2">
-                Adventuro Ai Travel Planner
-              </h3>
-              <div className="overflow-hidden rounded-lg mb-4">
-                <img
-                  src={Adventuro}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-                  alt=""
-                />
-              </div>
-              <p className="text-gray-400 mb-4">
-                Adventuro is an AI-powered travel planner that creates
-                personalized vacation itineraries based on user preferences,
-                budget, and time. It integrates live data to recommend flights,
-                hotels, and attractions—making travel planning effortless and
-                exciting.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "HTML",
-                  "CSS",
-                  "JavaScript",
-                  "Node.js",
-                  "Express.js",
-                  "MongoDB",
-                ].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/Vinit-Pothuraju/Adventuro"
-                  className="text-blue-400 hover:text-blue-300 transition-colors my-4 flex justify-between items-center gap-2"
-                  target="_blank"
-                >
-                  <FaGithub className="w-7 h-7"/> View Project
-                </a>
-              </div>
-            </div>
+    <section id="projects" className="min-h-screen flex items-center justify-center py-10 overflow-x-hidden">
+      <div className="w-auto flex flex-col justify-between align-middle space-y-10">
 
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all">
-              <h3 className="text-xl font-bold mb-2">Nike Frontend Webpage</h3>
-              <div className="overflow-hidden rounded-lg mb-4">
-                <img
-                  src={Nike}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-                  alt="Nike Frontend Webpage Screenshot"
-                />
-              </div>
-              <p className="text-gray-400 mb-4">
-                A sleek and responsive frontend website for Nike, built using
-                React and React Router DOM for seamless navigation. Styled
-                entirely with Tailwind CSS for a modern, fast-loading user
-                experience.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["React","Html","JavaScript", "React Router DOM", "Tailwind CSS"].map(
-                  (tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all"
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
-              </div>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/Vinit-Pothuraju/Nike-Web"
-                  className="text-blue-400 hover:text-blue-300 transition-colors my-4 flex justify-between items-center gap-2"
-                  target="_blank"
-                >
-                  <FaGithub className="w-7 h-7"/> View Project
-                </a>
-              </div>
-            </div>
+        {/* Header Section */}
+        <motion.div
+          className="text-center py-16 px-4 flex flex-col items-center justify-center"
+          variants={fadeInFrom(0, 40)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          {/* Badge */}
+          <motion.span
+            className="relative mb-4 px-4 py-1 rounded-full text-sm font-medium text-white bg-blue-400/10 border border-blue-400/30 backdrop-blur-md flex items-center gap-2"
+            variants={fadeInFrom(0, 20)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.span
+              className="w-2 h-2 rounded-full bg-blue-400"
+              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            Portfolio Showcase
+          </motion.span>
 
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all relative">
-              <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
-                <span>SnapWrite</span>
-                <span className="bg-green-500/10 text-green-500 text-xs font-semibold px-2 py-1 rounded-full ml-2">
-                  In Process
-                </span>
-              </h3>
-              <div className="overflow-hidden rounded-lg mb-4">
-                <img
-                  src={SnapwriteImg}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-                  alt="SnapWrite Blog Application"
-                />
-              </div>
-              <p className="text-gray-400 mb-4">
-                SnapWrite is a modern blog application that allows users to
-                write, edit, and share posts seamlessly. Built for fast,
-                intuitive content creation and consumption.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "React",
-                  "Node.js",
-                  "Express.js",
-                  "MongoDB",
-                  "React-Router-Dom",
-                  "Firebase",
-                ].map((tech, key) => (
-                  <span
-                    key={key}
-                    className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/Vinit-Pothuraju/SnapWrite"
-                  className="text-blue-400 hover:text-blue-300 transition-colors my-4 flex justify-between items-center gap-2"
-                  target="_blank"
-                >
-                  <FaGithub className="w-7 h-7"/> View Project
-                </a>
-              </div>
-            </div>
+          {/* Title */}
+          <motion.h1
+            className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-purple-400 to-purple-700 relative inline-block"
+            variants={fadeInFrom(0, 20)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {title}
+            <motion.span
+              className="block h-[3px] bg-gradient-to-r from-blue-500 to-purple-500 mt-2 mx-auto origin-center rounded-2xl"
+              animate={{ scaleX: [0, 1, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          </motion.h1>
 
-            <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all relative">
-              <h3 className="text-xl font-bold mb-2 flex items-center justify-between">
-                <span>E-commerce Project</span>
-                <span className="bg-green-500/10 text-green-500 text-xs font-semibold px-2 py-1 rounded-full ml-2">
-                  In Process
-                </span>
-              </h3>
-              <div className="overflow-hidden rounded-lg mb-4">
-                <img
-                  src={Ecom}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
-                  alt="E-commerce Project Screenshot"
-                />
-              </div>
-              <p className="text-gray-400 mb-4">
-                A sleek and responsive frontend e-commerce website built with
-                React and React Router DOM for smooth navigation. Styled with
-                Tailwind CSS to ensure a modern and fast-loading user
-                experience.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["React","Html","JavaScript", "React Router DOM", "Tailwind CSS"].map(
-                  (tech, key) => (
-                    <span
-                      key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all"
-                    >
-                      {tech}
-                    </span>
-                  )
-                )}
-              </div>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://github.com/Vinit-Pothuraju/Ecom-Web"
-                  className="text-blue-400 hover:text-blue-300 transition-colors my-4 flex justify-between items-center gap-2"
-                  target="_blank"
-                >
-                  <FaGithub className="w-7 h-7"/> View Project
-                </a>
-              </div>
-            </div>
-          </div>
+          {/* Description */}
+          <motion.p
+            className="mt-6 max-w-xl text-gray-300 text-base sm:text-lg text-center"
+            variants={fadeInFrom(0, 20)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            {description}
+          </motion.p>
+        </motion.div>
+
+        {/* Project Cards Section */}
+        <div className="space-y-20">
+          {projects.map((proj, idx) => (
+            <motion.div
+              key={idx}
+              variants={fadeInFrom(0, 40)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <ProjectCard {...proj} index={idx} />
+            </motion.div>
+          ))}
         </div>
-      </RevealOnScroll>
+        <motion.div
+  className="flex justify-center"
+  variants={fadeInFrom(0, 20)}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.2 }}
+>
+  <div className="flex items-center gap-3 px-4 py-2 rounded-xl border border-purple-500/50 bg-purple-500/5 text-sm text-white/80 shadow-md backdrop-blur-md">
+    <div className="w-6 h-6 flex items-center justify-center rounded-lg bg-purple-500 text-white text-xs font-bold">
+      <span>&gt;_</span>
+    </div>
+    <span><a href="http:#contact" target="_blank" rel="noopener noreferrer">Interested in working together? Let’s create something amazing!</a></span>
+  </div>
+</motion.div>
+
+
+
+
+
+      </div>
     </section>
   );
-};
-
-export default Projects;
+}

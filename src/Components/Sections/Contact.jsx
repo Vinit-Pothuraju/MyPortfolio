@@ -1,8 +1,19 @@
 import React, { useRef, useState } from "react";
-import RevealOnScroll from "../RevealOnScroll";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
+import { Mail, Download } from "lucide-react";
+
+const fadeInFrom = (x = 0, y = 40, delay = 0) => ({
+  hidden: { opacity: 0, x, y },
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { type: "spring", stiffness: 60, damping: 15, delay },
+  },
+});
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -50,57 +61,164 @@ const Contact = () => {
 
   return (
     <section
-      id="Contact"
-      className="min-h-screen flex items-center justify-center py-20 px-4"
+      id="contact"
+      className="min-h-screen flex items-center justify-center px-4 py-20 "
     >
-      <RevealOnScroll>
-        <div className="w-full sm:max-w-xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            Get In Touch
-          </h2>
+      <div className="max-w-3xl w-full text-center space-y-10">
+        <ToastContainer />
 
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name..."
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:border-blue-500 transition"
-            />
+        {/* Contact Badge */}
+        <motion.div
+          className="inline-block px-4 py-1 text-sm border border-blue-500/30 bg-blue-500/10 text-blue-400 rounded-full backdrop-blur-md"
+          whileHover={{ scale: 1.05 }}
+        >
+          💬 Contact
+        </motion.div>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="example@gmail.com"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:border-blue-500 transition"
-            />
+        {/* Heading */}
+        <motion.h2
+          className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          variants={fadeInFrom(0, 20, 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          Let’s Work Together
+        </motion.h2>
 
+        {/* Description */}
+        <motion.p
+          className="text-gray-300 max-w-2xl mx-auto"
+          variants={fadeInFrom(0, 20, 0.2)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          I’m always excited to work on interesting projects and collaborate
+          with amazing people. Let’s create something extraordinary together.
+        </motion.p>
+
+        {/* Contact Form */}
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="space-y-6 text-left"
+        >
+          <div className="grid sm:grid-cols-2 gap-6">
+            <motion.div
+              className="space-y-1"
+              variants={fadeInFrom(0, 20, 0.3)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <label className="text-sm text-gray-300">Name *</label>
+              <input
+                type="text"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your full name"
+                className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </motion.div>
+
+            <motion.div
+              className="space-y-1"
+              variants={fadeInFrom(0, 20, 0.4)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <label className="text-sm text-gray-300">Email *</label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your.email@example.com"
+                className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="space-y-1"
+            variants={fadeInFrom(0, 20, 0.5)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            <label className="text-sm text-gray-300">Message *</label>
             <textarea
               name="message"
               rows={5}
-              placeholder="Your message..."
               required
               value={formData.message}
               onChange={handleChange}
-              className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:border-blue-500 transition"
+              placeholder="Tell me about your project or idea..."
+              className="w-full px-4 py-3 rounded-lg bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </motion.div>
 
-            <button
+          <motion.div
+            className="flex justify-center pt-4"
+            variants={fadeInFrom(0, 20, 0.6)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+          >
+            <motion.button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded font-medium transition duration-300 ease-in-out transform hover:-translate-y-0.5 shadow-md"
+              whileHover={{
+                scale: 1.05,
+                rotateX: 4,
+                rotateY: 3,
+                boxShadow: "0 10px 30px rgba(0, 0, 255, 0.4)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-medium px-6 py-3 rounded-lg shadow-md"
             >
-              Send Message
-            </button>
-          </form>
+              📧 Send Message →
+            </motion.button>
+          </motion.div>
+        </form>
 
-      
-        </div>
-      </RevealOnScroll>
+        {/* OR */}
+        <motion.p
+          className="text-gray-400 text-sm mt-6"
+          variants={fadeInFrom(0, 10, 0.7)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          Or reach out directly:
+        </motion.p>
+
+        <motion.div
+          className="flex flex-wrap justify-center gap-4"
+          variants={fadeInFrom(0, 20, 0.75)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <a
+            href="mailto:your.email@example.com"
+            className="flex items-center gap-2 border border-gray-600 px-4 py-2 rounded-lg text-white hover:bg-gray-700 transition"
+          >
+            <Mail size={16} /> Send Email
+          </a>
+          <a
+            href="/your-cv.pdf"
+            download
+            className="flex items-center gap-2 border border-gray-600 px-4 py-2 rounded-lg text-white hover:bg-gray-700 transition"
+          >
+            <Download size={16} /> Download CV
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 };

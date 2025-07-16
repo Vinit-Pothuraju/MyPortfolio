@@ -31,7 +31,7 @@ const fadeUpVariant = {
 const Home = () => {
   return (
     <section
-      id="Home"
+      id="home"
       className="min-h-screen flex flex-col items-center justify-center relative"
     >
       {/* Motion wrapper for the entire text content */}
