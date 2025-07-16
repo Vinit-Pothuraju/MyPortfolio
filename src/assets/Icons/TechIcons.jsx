@@ -9,7 +9,7 @@ import JavaScript from "./Languages/JavaScript";
 import HTML5 from "./Languages/Html";
 import Java from "./Languages/Java";
 import Nodejs from "./libraries/Node";
-import TypeScript from "./Languages/Typescript";
+// import TypeScript from "./Languages/Typescript";
 
 import JWT from "./libraries/Jwt";
 import Expressjs from "./libraries/Express";
@@ -29,7 +29,7 @@ export const techIcons = {
     Tailwind: TailwindCSS,
     JavaScript: JavaScript,
     React: ReactIcon,
-    TypeScript: TypeScript,
+    // TypeScript: TypeScript,
    
   },
   Backend: {
@@ -43,7 +43,7 @@ export const techIcons = {
     // PostgreSQL: PostgreSQL,
   },
   Programming: {
-    TypeScript: TypeScript,
+    // TypeScript: TypeScript,
     Java: Java,
     JavaScript: JavaScript,
   },

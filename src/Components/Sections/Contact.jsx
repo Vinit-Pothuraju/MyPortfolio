@@ -19,8 +19,8 @@ const Contact = () => {
   const formRef = useRef(null);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     message: "",
   });
 
@@ -40,6 +40,8 @@ const Contact = () => {
       toast.error("Missing EmailJS environment variables.");
       return;
     }
+ 
+
 
     emailjs
       .sendForm(
@@ -50,22 +52,28 @@ const Contact = () => {
       )
       .then(() => {
         toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({
+  from_name: "",
+  from_email: "",
+  message: "",
+});
         formRef.current.reset();
       })
       .catch((err) => {
-        console.error("EmailJS Error:", err);
+        
         toast.error("Oops! Something went wrong. Please try again.");
       });
   };
 
   return (
     <section
+    
       id="contact"
       className="min-h-screen flex items-center justify-center px-4 py-20 "
     >
+       <ToastContainer />
       <div className="max-w-3xl w-full text-center space-y-10">
-        <ToastContainer />
+       
 
         {/* Contact Badge */}
         <motion.div
@@ -115,9 +123,9 @@ const Contact = () => {
               <label className="text-sm text-gray-300">Name *</label>
               <input
                 type="text"
-                name="name"
+                name="from_name"
                 required
-                value={formData.name}
+                value={formData.from_name}
                 onChange={handleChange}
                 placeholder="Your full name"
                 className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -134,9 +142,9 @@ const Contact = () => {
               <label className="text-sm text-gray-300">Email *</label>
               <input
                 type="email"
-                name="email"
+                name="from_email"
                 required
-                value={formData.email}
+                value={formData.from_email}
                 onChange={handleChange}
                 placeholder="your.email@example.com"
                 className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -205,14 +213,14 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.2 }}
         >
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:vinitkumarpothuraju@gmail.com"
             className="flex items-center gap-2 border border-gray-600 px-4 py-2 rounded-lg text-white hover:bg-gray-700 transition"
           >
             <Mail size={16} /> Send Email
           </a>
           <a
-            href="/your-cv.pdf"
-            download
+            href="/ResumeOrg.pdf"
+            download="vinit_kumar.pdf"
             className="flex items-center gap-2 border border-gray-600 px-4 py-2 rounded-lg text-white hover:bg-gray-700 transition"
           >
             <Download size={16} /> Download CV

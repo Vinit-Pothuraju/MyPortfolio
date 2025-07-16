@@ -39,7 +39,7 @@ const AutoDomainSwitcher = () => {
           "Software Engineer",
           "AI Enthusiast",
           "Web Developer",
-          "Open Source Contributor",
+            
           
         ]}
         loop={true}

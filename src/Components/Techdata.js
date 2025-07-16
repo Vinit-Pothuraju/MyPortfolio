@@ -5,7 +5,7 @@ const defaultLevels = {
   Tailwind: "Intermediate",
   Css: "Intermediate",
   Html: "Expert",
-  TypeScript: "Intermediate",
+  // TypeScript: "Intermediate",
   JavaScript: "Expert",
   NodeJS: "Intermediate",
   Jwt: "Beginner",
