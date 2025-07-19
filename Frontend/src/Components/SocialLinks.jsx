@@ -59,7 +59,7 @@ const itemVariants = {
 
       {/* Email */}
       <motion.a
-        href="mailto:vinit@example.com"
+        href="mailto:vinitkumarpothuraju@gmail.com"
         className="bg-transparent border border-gray-400 text-gray-300 text-sm px-5 py-1 rounded-full flex items-center gap-2 hover:scale-105 hover:shadow-md transition"
         variants={fadeUpVariant}
         whileHover={{ scale: 1.05 }}
