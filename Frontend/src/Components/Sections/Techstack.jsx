@@ -95,8 +95,8 @@ const TechStack = () => {
               className="block h-[4px] bg-gradient-to-r from-green-500 to-blue-500 mt-2 mx-auto origin-center rounded-2xl"
               animate={{ scaleX: [0.5, 0.7, 0.5] }}
               transition={{
-                duration: 2,
-               
+               duration: 2,
+                repeat: Infinity,
                 ease: "easeInOut",
               }}
             />

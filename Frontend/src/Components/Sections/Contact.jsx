@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
@@ -29,52 +28,46 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !import.meta.env.VITE_SERVICE_ID ||
-      !import.meta.env.VITE_TEMPLATE_ID ||
-      !import.meta.env.VITE_PUBLIC_KEY
-    ) {
-      toast.error("Missing EmailJS environment variables.");
-      return;
-    }
- 
+    // Replace this with your deployed backend URL
+    const BACKEND_URL = `${import.meta.env.VITE_BACKEND_URL}/send-email`;
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
+      const data = await res.json();
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-      .then(() => {
+      if (data.success) {
         toast.success("Message sent successfully!");
         setFormData({
-  from_name: "",
-  from_email: "",
-  message: "",
-});
+          from_name: "",
+          from_email: "",
+          message: "",
+        });
         formRef.current.reset();
-      })
-      .catch((err) => {
-        
-        toast.error("Oops! Something went wrong. Please try again.");
-      });
+      } else {
+        toast.error("Oops! Email sending failed.");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again later.");
+    }
   };
 
   return (
     <section
-    
       id="contact"
-      className="min-h-screen flex items-center justify-center px-4 py-20 "
+      className="min-h-screen flex items-center justify-center px-4 py-20"
     >
-       <ToastContainer />
+      <ToastContainer />
       <div className="max-w-3xl w-full text-center space-y-10">
-       
-
         {/* Contact Badge */}
         <motion.div
           className="inline-block px-4 py-1 text-sm border border-blue-500/30 bg-blue-500/10 text-blue-400 rounded-full backdrop-blur-md"
