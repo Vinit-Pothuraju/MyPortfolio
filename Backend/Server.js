@@ -12,13 +12,13 @@ app.use(cors({
 app.use(express.json());
 
 app.post('/send-email', async (req, res) => {
-  const { name, email, message } = req.body;
+  const { from_name, from_email, message  } = req.body;
 
   const mailOptions = {
-    from: email,
+    from: from_email,
     to: process.env.TO_EMAIL,
-    subject: `Portfolio Contact from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+    subject: `Portfolio Contact from ${from_name}`,
+    text: `Name: ${from_name}\nEmail: ${from_email}\nMessage:\n${message}`,
   };
 
   try {
