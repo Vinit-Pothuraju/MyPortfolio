@@ -34,7 +34,7 @@ const Home = () => {
       id="home"
       className="min-h-screen flex flex-col items-center justify-center relative"
     >
-      {/* Motion wrapper for the entire text content */}
+      
      <motion.div
   className="flex flex-col top-16 justify-center items-center z-10 relative px-4"
   variants={containerVariants}
@@ -65,7 +65,7 @@ const Home = () => {
 </motion.div>
 
 
-      {/* Scroll Down Arrow with motion */}
+     
       <a
         href="#overview"
         aria-label="Scroll Down"

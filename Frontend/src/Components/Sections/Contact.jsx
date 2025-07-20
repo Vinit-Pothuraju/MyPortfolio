@@ -33,6 +33,7 @@ const Contact = () => {
 
     const BACKEND_URL = `${import.meta.env.VITE_BACKEND_URL}/send-email`;
     try {
+      
       const res = await fetch(BACKEND_URL, {
         method: "POST",
         headers: {
