@@ -125,20 +125,17 @@ const About = () => {
                   googling my own errors.
                 </p>
                 <hr className="my-4 border-gray-700" />
-                <p className="text-sm text-gray-400">
-                  I’m a Full Stack Developer who enjoys building everything from
-                  dynamic user interfaces to robust backend APIs. I speak both
-                  frontend and backend fluently—whether it’s React, Node.js, or
-                  a sneaky SQL query at 2 AM. I believe in clean code, scalable
-                  architecture, and that no bug can withstand enough
-                  console.logs and coffee.
-                  <br />
-                  When I'm not pushing code or styling buttons to pixel
-                  perfection, I’m exploring new frameworks, contributing to side
-                  projects, or helping friends deploy their apps (because Git
-                  always behaves better when someone’s watching). I love turning
-                  complex problems into simple, elegant solutions—and
-                  occasionally turning those solutions into memes.
+                <p className="text-m text-gray-400">
+                 Hi! I'm Vinit Kumar Pothuraju, a passionate full-stack developer, AI enthusiast, and a dedicated problem solver, currently in my final year of Bachelor's degree at <span className="text-red-300 font-medium">Mohan Babu University</span> <div className="br"></div>
+
+I specialize in frontend development using React.js, and I’m skilled in building robust backend APIs with Node.js and Express. I’m also exploring the field of AI and integrating smart solutions into real-world applications.
+
+In addition to development, I actively practice Data Structures and Algorithms (DSA) to sharpen my problem-solving skills and improve my coding efficiency. 
+<br />I enjoy tackling complex challenges on coding platforms and continuously strive to write clean, optimized code.
+
+Over time, I’ve worked on a variety of projects—from personal websites and blog generators to AI-based tools that automate content creation. I’m always eager to learn, build, and contribute to meaningful projects.
+
+Whether I’m designing intuitive interfaces, solving algorithmic problems, or experimenting with new technologies, I aim to deliver innovative and impactful solutions.
                 </p>
                 <div className="mt-4">
                   <h3 className="font-semibold text-sm mb-2 text-white flex items-center gap-2">
@@ -149,7 +146,6 @@ const About = () => {
                       "AI Integration",
                       "React",
                       "Node.js",
-                      "TypeScript",
                       "Java",
                       "JavaScript",
                       "Data Structures",
@@ -168,31 +164,7 @@ const About = () => {
               </motion.div>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <motion.div
-                  className="bg-gradient-to-br from-blue-800/20 to-indigo-700/20 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
-                  variants={fadeInFrom(-60, 0)}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <h2 className="text-lg font-semibold mb-2 text-white">
-                    🌱 Developer Habits
-                  </h2>
-                  <ul className="space-y-2">
-                    {[
-                      "📖 Read docs first",
-                      "💡 Solve small before big",
-
-                      "🧠 Level up every week",
-                    ].map((habit, i) => (
-                      <li
-                        key={i}
-                        className="px-4 py-2 bg-gradient-to-br from-sky-900/30 to-cyan-800/10 border border-cyan-500 rounded-lg hover:scale-[1.02] transition transform hover:shadow-lg text-white text-sm"
-                      >
-                        {habit}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
+              
 
                 <motion.div
                   className="bg-gradient-to-br from-green-800/20 to-emerald-600/10 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
@@ -242,6 +214,33 @@ const About = () => {
                     Consistency &gt; Motivation
                   </p>
                 </motion.div>
+
+                  <motion.div
+                  className="bg-gradient-to-br from-blue-800/20 to-indigo-700/20 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-xl"
+                  variants={fadeInFrom(-60, 0)}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <h2 className="text-lg font-semibold mb-2 text-white">
+                  ✅ Available for Hire
+                  </h2>
+                  <ul className="space-y-2">
+                    {[
+                      "🟢 Open to Opportunities",
+                      " 🌍 Open to Remote & On-site",
+
+                      "🚚 Willing to Relocate",
+                    ].map((habit, i) => (
+                      <li
+                        key={i}
+                        className="px-4 py-2 bg-gradient-to-br from-sky-900/30 to-cyan-800/10 border border-cyan-500 rounded-lg hover:scale-[1.02] transition transform hover:shadow-lg text-white text-sm"
+                      >
+                        {habit}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+
               </div>
             </div>
 
@@ -304,27 +303,39 @@ const About = () => {
                 </ul>
               </motion.div>
 
-              <motion.div
-                className="bg-gradient-to-br from-sky-800/20 to-cyan-700/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl"
-                variants={fadeInFrom(60, 0)}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <h3 className="font-semibold text-lg mb-3 text-white">
-                  ✅ Available for Hire
-                </h3>
-                <ul className="text-sm space-y-2 text-white/90">
-                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
-                    🟢 Open to Opportunities
-                  </li>
-                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
-                    🌍 Open to Remote & On-site
-                  </li>
-                  <li className="flex items-center gap-2 px-3 py-2 rounded-md border border-green-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
-                    🚚 Willing to Relocate
-                  </li>
-                </ul>
-              </motion.div>
+         <motion.div
+  className="bg-gradient-to-br from-sky-800/20 to-cyan-700/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 shadow-2xl"
+  variants={fadeInFrom(60, 0)}
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.97 }}
+>
+  <h3 className="font-semibold text-lg mb-3 text-white">
+    🎓 Education
+  </h3>
+  <ul className="text-sm space-y-2 text-white/90">
+
+    <li className="flex flex-col gap-1 px-3 py-2 rounded-md border border-blue-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+      <span className="font-semibold">🎓 B.Tech in Computer Science</span>
+      <span>Mohan Babu University, Tirupati</span>
+      <span className="text-white/70">Final Year (2022 – 2026)</span>
+    </li>
+
+    <li className="flex flex-col gap-1 px-3 py-2 rounded-md border border-blue-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+      <span className="font-semibold">🏛️ Pre-University Course (PUC)</span>
+      <span>Rajiv Gandhi University of Knowledge and Technology, Srikakulam</span>
+      <span className="text-white/70">2020 – 2022</span>
+    </li>
+
+    <li className="flex flex-col gap-1 px-3 py-2 rounded-md border border-blue-400 backdrop-blur-xl border border-white/10 text-white text-sm hover:scale-[1.02] transition transform hover:shadow-lg">
+      <span className="font-semibold">📘 Secondary School Education</span>
+      <span>Sri Vyshnavi EM High School, Porumamilla</span>
+      <span className="text-white/70">2017 – 2020</span>
+    </li>
+
+  </ul>
+</motion.div>
+
+
             </div>
           </div>
         </div>
