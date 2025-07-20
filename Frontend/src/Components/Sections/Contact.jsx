@@ -31,7 +31,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Replace this with your deployed backend URL
     const BACKEND_URL = `${import.meta.env.VITE_BACKEND_URL}/send-email`;
     try {
       const res = await fetch(BACKEND_URL, {
@@ -66,7 +65,7 @@ const Contact = () => {
       id="contact"
       className="min-h-screen flex items-center justify-center px-4 py-20"
     >
-      <ToastContainer />
+     
       <div className="max-w-3xl w-full text-center space-y-10">
         {/* Contact Badge */}
         <motion.div
