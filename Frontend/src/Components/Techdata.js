@@ -6,7 +6,7 @@ const defaultLevels = {
   Css: "Intermediate",
   Html: "Expert",
   // TypeScript: "Intermediate",
-  JavaScript: "Expert",
+  JavaScript: "Intermediate",
   NodeJS: "Intermediate",
   Jwt: "Beginner",
   Expressjs: "Intermediate",
