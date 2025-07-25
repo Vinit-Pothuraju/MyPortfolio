@@ -184,7 +184,7 @@ Whether I’m designing intuitive interfaces, solving algorithmic problems, or e
                         className="w-10 h-10 object-contain"
                       />
                       <a
-                        href="https://leetcode.com/yourusername"
+                        href="https://leetcode.com/u/VKPothuraju_95/"
                         target="_blank"
                         rel="noreferrer"
                         className="hover:underline text-center"
@@ -201,7 +201,7 @@ Whether I’m designing intuitive interfaces, solving algorithmic problems, or e
                         className="w-10 h-10 object-contain"
                       />
                       <a
-                        href="https://auth.geeksforgeeks.org/user/yourusername"
+                        href="https://www.geeksforgeeks.org/user/vinitkumarimjx/"
                         target="_blank"
                         rel="noreferrer"
                         className="hover:underline text-center"
