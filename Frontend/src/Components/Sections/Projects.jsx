@@ -55,7 +55,7 @@ const projects = [
     "Responsive UI with Tailwind CSS",
   ],
   techStack: [
-    "React 18 (Vite)",
+    "React 19 (Vite)",
     "Zustand",
     "React Query",
     "Node.js",
