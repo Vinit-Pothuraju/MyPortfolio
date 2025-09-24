@@ -45,7 +45,7 @@ const itemVariants = {
 
       {/* LinkedIn */}
       <motion.a
-        href="https://linkedin.com/in/vinit-kumar"
+        href="https://www.linkedin.com/in/pothuraju-vinit-kumar/"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-transparent border border-gray-400 text-gray-300 text-sm px-5 py-1 rounded-full flex items-center gap-2 hover:scale-105 hover:shadow-md transition"
